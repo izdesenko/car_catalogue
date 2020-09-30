@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+	<script src="/js/script.js"></script>
+</head>
+<body>
+	<div>
+		<p>ID: <%= user.id %></p>
+		<p>Login: <%= user.login %></p>
+	</div>
+	<div><a href="/car">Car list</a></div></div>
+	
+	<% if(typeof authUser !== undefined && authUser.id === user.id) { %>
+	<div><a href="/user/logout" data-method="post">logout</a></div></div>
+	<% } %>
+</body>
+</html>

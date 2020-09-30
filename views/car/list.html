@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<script src="/js/script.js"></script>
+</head>
+<body>
+	<h1>Car list</h1>
+	<div>
+	<% if(authUser){ %>
+		<a href="/car/edit" title="Add car">[ Add car ]</a>
+		<a href="/user/<%= authUser.id %>" title="My profile">[ My profile ]</a>
+	<% }else{ %>
+		<a href="/user/login" title="Login">[ Login ]</a>
+	<% } %>
+	</div>
+	<% (cars || []).forEach(car => { %>
+	<div class="item">
+		<%= car.id %>. <%= car.name %>
+		<% if(authUser){ %>
+		[<a href="/car/edit/<%= car.id %>" title="Edit <%= car.name %>">edit</a>]
+		[<a class="delete" href="/car/<%= car.id %>" title="Delete <%= car.name %>" data-carname="<%= car.name %>">delete</a>]
+		<% } %>
+	</div>
+	<% }) %>
+</body>
+</html>

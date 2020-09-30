@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<style>
+	.error {
+		color: red;
+	}
+	</style>
+</head>
+<body>
+	<form method="post" action="/car/edit/<%= car ? car.id : '' %>">
+		<% if (typeof error !== 'undefined') { %>
+		<div class="error"><%= error %></div>
+		<% } %>
+		<label>Name: <input type="text" name="name" value="<%= typeof car !== 'undefined' ? car.name : '' %>" /></label>
+		<div><input type="submit" name="submit" value="Save" /></div>
+	</form>
+	<div><a href="/car">Back to car list</a></div>
+</body>
+</html>

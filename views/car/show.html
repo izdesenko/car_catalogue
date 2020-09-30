@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<script src="/js/script.js"></script>
+</head>
+<body>
+	<div class="item">
+		<%= car.id %>. <%= car.name %>
+		<% if(authUser){ %>
+		[<a href="/car/edit/<%= car.id %>" title="Edit <%= car.name %>">edit</a>]
+		[<a class="delete" href="/car/<%= car.id %>" title="Delete <%= car.name %>" data-carname="<%= car.name %>">delete</a>]
+		<% } %>
+	</div>
+	<div><a href="/car">Back to car list</a></div>
+</body>
+</html>
+
